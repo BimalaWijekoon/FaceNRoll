@@ -1,0 +1,930 @@
+/* src/components/UserRegistration.css */
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a2e;
+  background-image: linear-gradient(to bottom right, rgba(26, 26, 46, 0.9), rgba(37, 37, 66, 0.9)), url('../components/images/backgroundlogsign.jpg');
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.registration-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1200px;
+  height: 600px;
+  margin-top: 70px;
+}
+
+.registration-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.progress-step.active {
+  opacity: 1;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+  background-color: #1890ff;
+  color: white;
+  box-shadow: 0 0 15px rgba(24, 144, 255, 0.5);
+}
+
+.step-name {
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-step.active .step-name {
+  color: white;
+}
+
+.progress-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px;
+  max-width: 100px;
+  transition: all 0.3s ease;
+}
+
+.progress-line.active {
+  background-color: #1890ff;
+}
+
+/* Form styles */
+.registration-form {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.registration-form h2 {
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.registration-form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.registration-form-row:nth-child(1) { animation-delay: 0.1s; }
+.registration-form-row:nth-child(2) { animation-delay: 0.2s; }
+.registration-form-row:nth-child(3) { animation-delay: 0.3s; }
+.registration-form-row:nth-child(4) { animation-delay: 0.4s; }
+
+.registration-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.registration-form-group input {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  color: white;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.registration-form-group input:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 10px rgba(24, 144, 255, 0.3);
+}
+
+.registration-form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.registration-form-group input.error {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 10px rgba(255, 77, 79, 0.3);
+}
+
+.error-message {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.registration-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.registration-button {
+  padding: 12px 24px;
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.registration-button:hover {
+  background-color: #0c7ad8;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(24, 144, 255, 0.4);
+}
+
+.registration-button:active {
+  transform: translateY(-1px);
+}
+
+.registration-button:disabled {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.registration-button.secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.registration-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Camera styles */
+.registration-camera-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.camera-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.camera-header h2 {
+  color: white;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.time-display {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1890ff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.resolution-controls {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.resolution-selector {
+  min-width: 120px;
+  margin-left: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+}
+
+.resolution-selector:focus {
+  outline: none;
+  border-color: #1890ff;
+}
+
+/* Updated camera capture layout */
+.camera-capture-layout {
+  display: flex;
+  flex: 1;
+  height: 450px;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Left Side - Camera View */
+.camera-view-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+}
+
+.video-wrapper {
+  position: relative;
+  flex: 1;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  height: calc(100% - 40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.camera-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scan-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(24, 144, 255, 0.3);
+}
+
+
+/* New mesh animation classes */
+.scan-mesh {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #1890ff, transparent);
+  animation: scan 2s linear infinite;
+  box-shadow: 0 0 10px #1890ff;
+}
+
+/* Add this keyframe animation for the mesh movement */
+@keyframes meshMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Keep your existing scan animation */
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.face-position-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5000px rgba(0, 0, 0, 0.3);
+}
+
+.pose-instruction {
+  position: absolute;
+  bottom: 380px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.pose-instruction h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1890ff;
+}
+
+.pose-instruction p {
+  margin: 5px 0 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Updated capture button */
+.capture-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1890ff;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(24, 144, 255, 0.5);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.capture-button:hover:not(:disabled) {
+  background-color: #0c7ad8;
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 6px 20px rgba(24, 144, 255, 0.6);
+}
+
+.capture-button:active:not(:disabled) {
+  transform: translateX(-50%) scale(0.95);
+  box-shadow: 0 2px 10px rgba(24, 144, 255, 0.4);
+}
+
+.capture-button:disabled {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.camera-selector-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 5px;
+}
+
+.camera-selector {
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.camera-selector:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 10px rgba(24, 144, 255, 0.3);
+}
+
+/* Right Side - Preview Section */
+.photo-preview-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.photo-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 15px;
+  overflow-y: auto;
+  height: calc(100% - 50px);
+  padding-right: 10px;
+}
+
+.photo-preview-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  border: 2px solid transparent;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.photo-preview-item:nth-child(1) { animation-delay: 0.1s; }
+.photo-preview-item:nth-child(2) { animation-delay: 0.2s; }
+.photo-preview-item:nth-child(3) { animation-delay: 0.3s; }
+.photo-preview-item:nth-child(4) { animation-delay: 0.4s; }
+.photo-preview-item:nth-child(5) { animation-delay: 0.5s; }
+.photo-preview-item:nth-child(6) { animation-delay: 0.6s; }
+.photo-preview-item:nth-child(7) { animation-delay: 0.7s; }
+.photo-preview-item:nth-child(8) { animation-delay: 0.8s; }
+
+.photo-preview-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.photo-preview-item.active {
+  border-color: #1890ff;
+  box-shadow: 0 0 15px rgba(24, 144, 255, 0.4);
+}
+
+.preview-pose-title {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 2;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.photo-preview-item img {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: cover;
+  flex: 1;
+}
+
+.empty-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+  flex: 1;
+}
+
+.preview-retake-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 6px 0;
+  width: 100%;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.preview-retake-button:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #1890ff;
+}
+
+.preview-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+/* Review styles */
+.registration-review-container {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.registration-review-container h2 {
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.registration-review-section {
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.registration-review-section:nth-child(2) { animation-delay: 0.1s; }
+.registration-review-section:nth-child(3) { animation-delay: 0.2s; }
+
+.registration-review-section h3 {
+  color: #1890ff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.registration-review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.review-label {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.review-value {
+  font-size: 16px;
+  color: white;
+  word-break: break-word;
+}
+
+.registration-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.review-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.review-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.review-photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Scrollbar styling */
+.registration-form::-webkit-scrollbar,
+.photo-preview-grid::-webkit-scrollbar,
+.registration-review-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.registration-form::-webkit-scrollbar-track,
+.photo-preview-grid::-webkit-scrollbar-track,
+.registration-review-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.registration-form::-webkit-scrollbar-thumb,
+.photo-preview-grid::-webkit-scrollbar-thumb,
+.registration-review-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.registration-form::-webkit-scrollbar-thumb:hover,
+.photo-preview-grid::-webkit-scrollbar-thumb:hover,
+.registration-review-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Mirror mode styles */
+.camera-feed.mirrored {
+  transform: scaleX(-1);
+}
+
+.camera-controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.camera-mirror-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.camera-mirror-toggle span {
+  font-size: 14px;
+}
+
+/* Toggle switch styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #1890ff;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .registration-container {
+    height: auto;
+    max-height: 90vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .registration-container {
+    width: 95%;
+    height: auto;
+    max-height: 85vh;
+  }
+  
+  .registration-form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .camera-capture-layout {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .camera-view-section,
+  .photo-preview-section {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .video-wrapper {
+    height: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .photo-preview-grid {
+    height: 300px;
+    margin-top: 15px;
+  }
+  
+  .registration-photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .camera-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .registration-review-grid {
+    grid-template-columns: 1fr;
+  }
+  
+
+  .time-display {
+    font-size: 16px;
+  }
+  
+  .step-name {
+    font-size: 12px;
+  }
+  
+  .progress-step {
+    width: 90px;
+  }
+}
+
+@media (max-width: 576px) {
+  .registration-progress {
+    overflow-x: auto;
+    padding: 15px 5px;
+  }
+  
+  .photo-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .registration-photos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background-color: rgba(220, 38, 38, 0.15);
+  color: #ff4d4f;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 300;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  overflow: hidden;
+  width: 36px; /* Smaller initial width */
+  height: 36px; /* Fixed height */
+  z-index: 10;
+}
+
+/* Fix for arrow visibility */
+.back-button .anticon {
+  font-size: 16px;
+  color: #ff4d4f;
+  opacity: 1; /* Make sure icon is visible by default */
+  transition: transform 0.3s ease;
+}
+
+.back-button span {
+  white-space: nowrap;
+  opacity: 0;
+  width: 0;
+  transition: opacity 0.3s ease, width 0.3s ease;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  width: 155px;
+  padding: 8px 15px;
+  background-color: rgba(220, 38, 38, 0.25);
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(220, 38, 38, 0.15);
+}
+
+.back-button:hover span {
+  opacity: 1;
+  width: auto;
+  margin-left: 4px;
+}
+
+.back-button:hover .anticon {
+  transform: translateX(-3px);
+}

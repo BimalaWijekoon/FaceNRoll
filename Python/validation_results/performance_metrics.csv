@@ -1,0 +1,10 @@
+Metric,Value
+accuracy,0.7777777777777778
+avg_processing_time,0.5626703368292915
+cosine_similarity_accuracy,0.5925925925925926
+cosine_similarity_precision,0.7272727272727273
+cosine_similarity_recall,1.0
+cosine_similarity_f1,0.8421052631578947
+cosine_similarity,0.8390358719674843
+cosine_distance,0.1609641280325157
+euclidean_distance,9.937150001525879

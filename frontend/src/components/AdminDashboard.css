@@ -1,0 +1,227 @@
+/* src/components/MainDashboard.css */
+.main-dashboard {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a2e;
+  background-image: linear-gradient(to bottom right, rgba(26, 26, 46, 0.9), rgba(37, 37, 66, 0.9)), url('../components/images/backgroundlogsign.jpg');
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-content {
+  width: 90%;
+  max-width: 1200px;
+  height: 85vh;
+  margin-top: 64px; /* Space for navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-header h2 {
+  color: white;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.time-display {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1890ff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 100%;
+  overflow-y: auto;
+  padding-right: 5px; /* Space for scrollbar */
+}
+
+.nav-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateY(-100%);
+  transition: transform 0.6s;
+}
+
+.nav-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: var(--hover-color);
+}
+
+.nav-card:hover::before {
+  transform: translateY(100%);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 10px;
+  transition: all 0.3s ease;
+}
+
+.card-icon svg {
+  font-size: 28px;
+  color: white;
+}
+
+.nav-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 10px 20px 20px;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin: 0 0 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.nav-card:nth-child(1) { animation-delay: 0.1s; }
+.nav-card:nth-child(2) { animation-delay: 0.2s; }
+.nav-card:nth-child(3) { animation-delay: 0.3s; }
+.nav-card:nth-child(4) { animation-delay: 0.4s; }
+.nav-card:nth-child(5) { animation-delay: 0.5s; }
+.nav-card:nth-child(6) { animation-delay: 0.6s; }
+.nav-card:nth-child(7) { animation-delay: 0.7s; }
+.nav-card:nth-child(8) { animation-delay: 0.8s; }
+.nav-card:nth-child(9) { animation-delay: 0.9s; }
+
+/* Custom scrollbar for card container */
+.cards-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.cards-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    width: 95%;
+    height: 80vh;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-card {
+    height: 150px;
+  }
+  
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    margin: 15px auto 5px;
+  }
+  
+  .card-icon svg {
+    font-size: 24px;
+  }
+  
+  .card-content h3 {
+    font-size: 16px;
+  }
+  
+  .card-content p {
+    font-size: 12px;
+  }
+}
