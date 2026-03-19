@@ -54,7 +54,7 @@ FaceNRoll/
 
 ## Environment Configuration
 
-Create `Database/.env` from the repository root:
+Create a `.env` file in the `Database/` directory with the following content:
 
 ```env
 PORT=5000
@@ -79,7 +79,7 @@ cd ../Database
 npm install
 ```
 
-Install Python dependencies (manually, because no `requirements.txt` is currently provided):
+Install Python dependencies:
 
 ```bash
 cd Python
