@@ -54,7 +54,7 @@ FaceNRoll/
 
 ## Environment Configuration
 
-Create `/home/runner/work/FaceNRoll/FaceNRoll/Database/.env`:
+Create `Database/.env` from the repository root:
 
 ```env
 PORT=5000
@@ -72,17 +72,17 @@ Notes:
 Install dependencies for frontend and backend:
 
 ```bash
-cd /home/runner/work/FaceNRoll/FaceNRoll/frontend
+cd frontend
 npm install
 
-cd /home/runner/work/FaceNRoll/FaceNRoll/Database
+cd ../Database
 npm install
 ```
 
 Install Python dependencies (manually, because no `requirements.txt` is currently provided):
 
 ```bash
-cd /home/runner/work/FaceNRoll/FaceNRoll/Python
+cd Python
 pip install flask flask-cors tensorflow opencv-python mediapipe scipy numpy pandas
 ```
 
@@ -91,7 +91,7 @@ pip install flask flask-cors tensorflow opencv-python mediapipe scipy numpy pand
 ### Option A: Start all services from the frontend (recommended for local development)
 
 ```bash
-cd /home/runner/work/FaceNRoll/FaceNRoll/frontend
+cd frontend
 npm start
 ```
 
@@ -104,19 +104,19 @@ This runs:
 
 **Frontend**
 ```bash
-cd /home/runner/work/FaceNRoll/FaceNRoll/frontend
-npm start-react
+cd frontend
+npm run start-react
 ```
 
 **Backend**
 ```bash
-cd /home/runner/work/FaceNRoll/FaceNRoll/Database
+cd Database
 npm start
 ```
 
 **Python face service**
 ```bash
-cd /home/runner/work/FaceNRoll/FaceNRoll/Python
+cd Python
 python app.py
 ```
 
